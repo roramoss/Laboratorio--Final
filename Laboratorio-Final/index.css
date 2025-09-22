@@ -1,0 +1,314 @@
+/* Importante para un diseño flexible */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background: #5a2e0a;
+    color: white;
+}
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    
+}
+
+/* Estilos para el Carrusel */
+.slideshow-container {
+    position: relative;
+    max-width: 1000px; 
+    margin: auto;
+}
+
+.slideshow-img {
+    width: 100%; 
+    display: none;
+    height: auto; 
+}
+
+/* Estilos para Mates */
+.contenedor-mates, .contenedor-destacados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center;
+   
+}
+
+.mate-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex:   200px; 
+    max-width: 150px; 
+}
+
+.mate-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Estilos para Mates */
+.contenedor-mates, .contenedor-destacados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    
+}
+
+.mate-card {
+    background: rgb(253, 253, 253);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1 1 250px; 
+}
+
+.mate-card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.redes-sociales a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .contenedor-mates, .contenedor-destacados {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Sección de Productos */
+#productos {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+#productos h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Contenedor de Flexbox para los productos */
+.contenedor-productos {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 2rem; 
+}
+
+/* Estilos de la tarjeta individual */
+.tarjeta-producto {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 280px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    text-align: center;
+    transition: transform 0.2s; 
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-5px);
+}
+
+.tarjeta-producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+/* Etiqueta "NUEVO" */
+.etiqueta-estado {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #000;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* Precios */
+.nombre-producto {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+.precios {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+    align-items: baseline;
+}
+
+.precio-tachado {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.precio-oferta {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.precio-alternativo {
+    color: #4a90e2;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* Media Queries para la responsividad */
+@media (max-width: 600px) {
+    .contenedor-productos {
+        flex-direction: column;
+        align-items: center;
+    }
+    .tarjeta-producto {
+        width: 90%; 
+    }
+}
+
+/* --- Barra de Navegación --- */
+.navbar {
+    background-color: #5a2e0a;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e0ac69;
+}
+
+/* --- Sección de Botones de Navegación --- */
+.menu-secciones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+}
+
+.btn-seccion {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #ffffff;
+    color: #5a2e0a;
+    border: 1px solid #5a2e0a;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.btn-seccion:hover {
+    background-color: #5a2e0a;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Sección "Sobre Nosotros" --- */
+#sobre-nosotros {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+#sobre-nosotros h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+#sobre-nosotros p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Media Queries para la responsividad de los botones */
+@media (max-width: 768px) {
+    .menu-secciones {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .btn-seccion {
+        width: 80%;
+        text-align: center;
+    }
+}
