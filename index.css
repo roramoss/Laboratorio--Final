@@ -312,3 +312,117 @@ footer {
         text-align: center;
     }
 }
+
+/* --- Sección "Sobre Nosotros" --- */
+#sobre-nosotros {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+#sobre-nosotros h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem; 
+    color: #333;
+}
+
+.contenido-historia {
+    display: flex; 
+    gap: 3rem; 
+    align-items: center; 
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; 
+}
+
+.texto-historia {
+    flex: 1 1 500px; 
+    text-align: left; 
+}
+
+.texto-historia p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.imagen-historia {
+    flex: 1 1 400px; 
+    text-align: center;
+}
+
+.imagen-historia img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+    .contenido-historia {
+        flex-direction: column; 
+    }
+    .texto-historia {
+        text-align: center;
+    }
+}
+
+/* --- Sección de Beneficios --- */
+#beneficios {
+    padding: 3rem 1rem;
+    background-color: #ffffff;
+}
+
+.contenedor-beneficios {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+    gap: 2rem;
+    flex-wrap: wrap; 
+}
+
+.beneficio {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1 1 300px; 
+    padding: 1rem;
+    border-right: 1px solid #ddd; 
+}
+
+.beneficio:last-child {
+    border-right: none; 
+}
+
+.icono-beneficio {
+    font-size: 2.5rem;
+    color: #5a2e0a; 
+}
+
+.texto-beneficio h3 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: #444;
+}
+
+.texto-beneficio p {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+
+@media (max-width: 768px) {
+    .beneficio {
+        flex-direction: column;
+        text-align: center;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+    .beneficio:last-child {
+        border-bottom: none;
+    }
+}
