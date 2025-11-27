@@ -15,8 +15,8 @@
     <nav class="navbar">
         <a href="#inicio" class="logo">Mateando ando</a>
         <ul class="nav-links">
-            <li><a href="#">Iniciar Sesion</a></li>
-            <li><a href="#">Registro</a></li>
+            <li><a href="login.php">Iniciar Sesion</a></li>
+           <li><a href="login.php">Registro</a></li>
             <span class="material-symbols-outlined">
 shopping_cart
 </span>
@@ -31,24 +31,10 @@ shopping_cart
     </header>
 
     <section class="menu-secciones">
-        <a href="#carrusel" class="btn-seccion">Promociones</a>
-        <a href="./index.html" class="btn-seccion">Productos Destacados</a>
-        <a href="#productos" class="btn-seccion">Productos</a>
-        <a href="#sobre-nosotros" class="btn-seccion">Sobre Nosotros</a>
+        <a href="./index.html" class="btn-seccion">Volver al Inicio</a>
     </section>
 
     <main>
-
-        
-        <section id="carrusel">
-            <h2>VIVÍ COMO NOSOTROS, VIVÍ A PURO MATE</h2>
-          
-            <div class="slideshow-container">
-            </div>
-            <a class="prev">&#10094;</a>
-            <a class="next">&#10095;</a>
-        </section>
-
         <section id="productosdestacados">
             <h2>Nuestros Productos </h2>
             <div class="contenedor-productos">
@@ -136,6 +122,7 @@ shopping_cart
         </section>
  <br>
 </section>
+<br><br><br>
 <section id="beneficios">
     <div class="contenedor-beneficios">
         
@@ -168,19 +155,6 @@ shopping_cart
 
 
 <br><br><br>
-
-
-       <section id="sobre-nosotros">
-    <h2>Nuestra Historia</h2>
-    <div class="contenido-historia">
-        <div class="texto-historia">
-            <p>En Mateando, nos apasiona el ritual del mate. Creemos en la tradición, la calidad y la conexión que un buen mate puede crear. Desde el 2020, nos dedicamos a seleccionar los mejores mates y accesorios, para que cada cebada sea una experiencia única.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-        <div class="imagen-historia">
-            <img src="src/sobre nosotros.jpeg" alt="Una imagen de personas tomando mate">
-        </div>
-    </div>
 
 
 <br><br><br>

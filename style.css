@@ -1,14 +1,122 @@
-.productos-btn{
-font-family:Arial, Helvetica, sans-serif;
-text-decoration: none;
-display: inline-block;
-background-color: rgb(6, 135, 255);
-color: rgb(255, 255, 255);
-padding: 8px 15px;
-border-radius: 10px;
-font-size: 0.9rem;
-cursor: pointer;
+/* ---------- ESTILOS GENERALES ---------- */
+
+body {
+  background: #f3f4f6;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
+/* ---------- CONTENEDOR GENERAL ---------- */
+
+.container {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 10px;
+}
+
+/* ---------- FORMULARIOS TARJETA ---------- */
+
+.form {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 35px 25px;
+  box-shadow: 0px 4px 14px rgba(0,0,0,0.12);
+  border-radius: 14px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* ---------- TITULOS ---------- */
+
+.title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 25px;
+}
+
+/* ---------- LABELS ---------- */
+
+.label {
+  display: block;
+  text-align: left;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* ---------- INPUTS ---------- */
+
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.18s;
+}
+
+.input:focus {
+  border-color: #3182ce;
+  box-shadow: 0 0 0 2px rgba(49,130,206,0.25);
+}
+
+/* ---------- BOTÓN SUBMIT ---------- */
+
+.submit {
+  background-color: #1a202c;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.submit:hover {
+  background-color: #2d3748;
+}
+
+/* ---------- HR ---------- */
+
+hr {
+  max-width: 320px;
+  margin: 45px auto;
+  border: none;
+  border-top: 1px solid #aaa;
+}
+
+/* ---------- MENSAJES DE ERROR ---------- */
+
+.error {
+  color: red;
+  background: #ffe5e5;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* ---------- BOTÓN DE PRODUCTOS (lo que me mandaste primero) ---------- */
+
+.productos-btn {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  background-color: rgb(6, 135, 255);
+  color: rgb(255, 255, 255);
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
 .productos-btn:hover {
- background-color: #00f050;
- }
+  background-color: #00f050;
+}
