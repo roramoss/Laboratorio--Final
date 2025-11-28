@@ -35,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $nombre = trim($_POST['nombre'] ?? '');
     $precio = trim($_POST['precio'] ?? '');
-    $descripcion = trim($_POST['descripcion'] ?? '');
     $stock = trim($_POST['stock'] ?? '');
 
     if (empty($nombre) || empty($precio) || empty($stock)) {
@@ -61,10 +60,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         }
 
-        // Actualizar BD
-        $sql = "UPDATE productos SET nombre=?, precio=?, descripcion=?, stock=?, imagen=? WHERE id=?";
+        // Actualizar 
+        $sql = "UPDATE productos SET nombre=?, precio=?, stock=?, imagen=? WHERE id=?";
         $stmt = $con->prepare($sql);
-        $stmt->bind_param("sdsi si", $nombre, $precio, $descripcion, $stock, $imagenNueva, $id);
+        $stmt->bind_param("sdssi", $nombre, $precio, $stock, $imagenNueva, $id);
         $stmt->execute();
         $stmt->close();
 
@@ -95,9 +94,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <label>Precio:</label><br>
     <input type="number" step="0.01" name="precio" value="<?php echo htmlspecialchars($producto['precio']); ?>" required><br><br>
-
-    <label>Descripción:</label><br>
-    <textarea name="descripcion"><?php echo htmlspecialchars($producto['descripcion']); ?></textarea><br><br>
 
     <label>Stock:</label><br>
     <input type="number" name="stock" value="<?php echo $producto['stock']; ?>" required><br><br>

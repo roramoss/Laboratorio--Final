@@ -1,3 +1,10 @@
+<?php
+session_start();
+include("conect.php"); 
+
+// Obtener todos los productos
+$consultaProductos = mysqli_query($con, "SELECT * FROM productos ORDER BY id ASC");
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -6,171 +13,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mateando - Tienda de Mates</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_cart" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css?v=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="#inicio" class="logo">Mateando ando</a>
-        <ul class="nav-links">
-            <li><a href="login.php">Iniciar Sesion</a></li>
-           <li><a href="login.php">Registro</a></li>
-            <span class="material-symbols-outlined">
-shopping_cart
-</span>
-            
-        </ul>
-    </nav>
+<nav class="navbar">
+    <a href="index.html" class="logo">Mateando</a>
+    <ul class="nav-links">
+        <li><a href="login.php">Iniciar Sesion</a></li>
+        <li><a href="login.php">Registro</a></li>
+        <span class="material-symbols-outlined">shopping_cart</span>
+    </ul>
+</nav>
 
-    <header id="inicio">
-        
-        <p>Tu lugar para encontrar los mejores mates.</p>
-       
-    </header>
+<header id="inicio">
+    <p>Tu lugar para encontrar los mejores mates.</p>
+</header>
 
-    <section class="menu-secciones">
-        <a href="./index.html" class="btn-seccion">Volver al Inicio</a>
+<section class="menu-secciones">
+    <a href="./index.html" class="btn-seccion">Volver Al Inicio</a>
+</section>
+
+<main>
+    <section id="productos">
+        <h2>Nuestros Productos</h2>
+
+        <div class="contenedor-productos">
+
+            <?php while($producto = mysqli_fetch_assoc($consultaProductos)): ?>
+                <div class="tarjeta-producto">
+                    <?php if ($producto['nuevo'] ?? false): ?>
+                        <div class="etiqueta-estado">NUEVO</div>
+                    <?php endif; ?>
+
+                    <img src="img/<?= htmlspecialchars($producto['imagen']); ?>" alt="<?= htmlspecialchars($producto['nombre']); ?>">
+                    <h3 class="nombre-producto"><?= htmlspecialchars($producto['nombre']); ?></h3>
+
+                    <div class="precios">
+                        <?php if($producto['precio_tachado'] ?? 0): ?>
+                            <span class="precio-tachado">$<?= number_format($producto['precio_tachado'], 2); ?></span>
+                        <?php endif; ?>
+                        <span class="precio-oferta">$<?= number_format($producto['precio'], 2); ?></span>
+                    </div>
+
+                    <p class="precio-alternativo">
+                        $<?= number_format($producto['precio_transferencia'] ?? $producto['precio'], 2); ?> con Transferencia o depósito
+                    </p>
+
+                    <!-- Botón Añadir al Carrito -->
+                    <section class="productos-btn">
+                        <a href="agregar_carrito.php?id=<?= $producto['id']; ?>" class="submit">Añadir al Carrito</a>
+                    </section>
+                </div>
+            <?php endwhile; ?>
+
+        </div>
     </section>
+</main>
 
-    <main>
-        <section id="productosdestacados">
-            <h2>Nuestros Productos </h2>
-            <div class="contenedor-productos">
-                <div class="tarjeta-producto">
-                    <div class="etiqueta-estado">NUEVO</div>
-                    <img src="src/mete7.webp" alt="Nombre del Producto">
-                    <h3 class="nombre-producto">BOMBILLÓN DE ACERO</h3>
-                    <div class="precios">
-                        <span class="precio-tachado">$15.000,00</span>
-                        <span class="precio-oferta">$12.500,00</span>
-                    </div>
-                    <p class="precio-alternativo">$11.250,00 con Transferencia o depósito</p>
-                </div>
-                <div class="tarjeta-producto">
-                    <img src="src/mate6.webp" alt="Nombre del Producto">
-                    <h3 class="nombre-producto">MATE RANCHERO</h3>
-                    <div class="precios">
-                        <span class="precio-oferta">$39.900,00</span>
-                    </div>
-                    <p class="precio-alternativo">$29.925,00 con Transferencia o depósito</p>
-                </div>
-                <div class="tarjeta-producto">
-                    <img src="src/mate8.webp" alt="Nombre del Producto">
-                    <h3 class="nombre-producto">MATE ARGENTINO</h3>
-                    <div class="precios">
-                        <span class="precio-oferta">$39.900,00</span>
-                    </div>
-                    <p class="precio-alternativo">$29.925,00 con Transferencia o depósito</p>
-                </div>
-                <div class="tarjeta-producto">
-                    <img src="src/mate5.webp" alt="Nombre del Producto">
-                    <h3 class="nombre-producto">MATE RANCHERO</h3>
-                    <div class="precios">
-                        <span class="precio-oferta">$39.900,00</span>
-                    </div>
-                    <p class="precio-alternativo">$29.925,00 con Transferencia o depósito</p>
-                </div>
-                <div class="tarjeta-producto">
-                    <img src="src/mate4.webp" alt="Nombre del Producto">
-                    <h3 class="nombre-producto">MATE RANCHERO</h3>
-                    <div class="precios">
-                        <span class="precio-oferta">$39.900,00</span>
-                    </div>
-                    <p class="precio-alternativo">$29.925,00 con Transferencia o depósito</p>
-                </div>
-
-                <!--Mates agregados por fabri --> 
-            <div class="tarjeta-producto">
-                    <img src="./img/mate-alga.webp" alt="Nombre del Producto">
-                    <h3 class="nombre-producto">MATE IMPERIAL DE ALGARROBO</h3>
-                    <div class="precios">
-                        <span class="precio-oferta">$35.000,00</span>
-                    </div>
-                      <p class="precio-alternativo">$31.525,00 con Transferencia o depósito</p>
-                   <!--botones --> <br> <a href="index.html" class="productos-btn" data-btn-action="add-btn-cart"> Agregar al carrito </a> </br>
-                </div>
-
-                  <div class="tarjeta-producto">
-                    <img src="./img/mates-alga.webp" alt="Nombre del Producto">
-                    <h3 class="nombre-producto">Mate Imperial Algarrobo Matesur Fleje De Alpaca + Bombilla Pico Loro Inox</h3>
-                    <div class="precios">
-                        <span class="precio-oferta">$49.990,00</span>
-                    </div>
-                    <p class="precio-alternativo">$41.558,45 con Transferencia o depósito</p>
-                </div>
-
-                  <div class="tarjeta-producto">
-                    <img src="./img/mate-ranchero.webp" alt="Nombre del Producto">
-                    <h3 class="nombre-producto">Mate Ranchero Artesanal Algarrobo Premium Con Bombilla</h3>
-                    <div class="precios">
-                        <span class="precio-oferta">$54.566,89</span>
-                    </div>
-                    <p class="precio-alternativo">$50.562,70 con Transferencia o depósito</p>
-                </div>
-                   <!-- fin de mis agregados-->>
-                <div class="tarjeta-producto">
-                    <img src="src/bombilla.webp" alt="Nombre del Producto">
-                    <h3 class="nombre-producto">MATE RANCHERO</h3>
-                    <div class="precios">
-                        <span class="precio-oferta">$39.900,00</span>
-                    </div>
-                    <p class="precio-alternativo">$29.925,00 con Transferencia o depósito</p>
-                </div>
-            </div>
-        </section>
- <br>
-</section>
-<br><br><br>
-<section id="beneficios">
-    <div class="contenedor-beneficios">
-        
-        <div class="beneficio">
-            <i class="fas fa-truck-fast icono-beneficio"></i>
-            <div class="texto-beneficio">
-                <h3>ENVIAMOS TU COMPRA</h3>
-                <p>Entregas a todo el país</p>
-            </div>
+<footer>
+    <div class="footer-contenido">
+        <p>&copy; 2025 Mateando. Todos los derechos reservados.</p>
+        <div class="redes-sociales">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
         </div>
-        
-        <div class="beneficio">
-            <i class="fas fa-credit-card icono-beneficio"></i>
-            <div class="texto-beneficio">
-                <h3>PAGÁ COMO QUIERAS</h3>
-                <p>Tarjetas de crédito o efectivo</p>
-            </div>
-        </div>
-
-        <div class="beneficio">
-            <i class="fas fa-lock icono-beneficio"></i>
-            <div class="texto-beneficio">
-                <h3>COMPRÁ CON SEGURIDAD</h3>
-                <p>Tus datos siempre protegidos</p>
-            </div>
-        </div>
-
     </div>
-</section>
+</footer>
 
-
-<br><br><br>
-
-
-<br><br><br>
-
-    </main>
-
-    <footer>
-        <div class="footer-contenido">
-            <p>&copy; 2025 Mateando. Todos los derechos reservados.</p>
-            <div class="redes-sociales">
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

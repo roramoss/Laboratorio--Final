@@ -15,9 +15,7 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-/* ------------------------------------------------------------------
-   1️⃣ OBTENER LA IMAGEN DEL PRODUCTO ANTES DE BORRARLO
------------------------------------------------------------------- */
+// obtener la img del prod antes de borrarlo
 $sql = "SELECT imagen FROM productos WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
@@ -26,9 +24,7 @@ $result = $stmt->get_result();
 $producto = $result->fetch_assoc();
 $stmt->close();
 
-/* ------------------------------------------------------------------
-   2️⃣ BORRAR LA IMAGEN FÍSICA SI EXISTE
------------------------------------------------------------------- */
+// borrar la img si ya existe
 
 if ($producto && !empty($producto['imagen'])) {
     $rutaImagen = "img/" . $producto['imagen'];
@@ -38,9 +34,7 @@ if ($producto && !empty($producto['imagen'])) {
     }
 }
 
-/* ------------------------------------------------------------------
-   3️⃣ BORRAR EL PRODUCTO DE LA BASE DE DATOS
------------------------------------------------------------------- */
+// borrar el prod de la base de datos 
 $sql = "DELETE FROM productos WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
