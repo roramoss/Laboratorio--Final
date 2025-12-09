@@ -1,5 +1,4 @@
-/* - estilos generales  */
-
+/* estilos generales */
 body {
   background: #f3f4f6;
   font-family: Arial, Helvetica, sans-serif;
@@ -7,16 +6,14 @@ body {
   padding: 0;
 }
 
-/* - contenedor general - */
-
+/* contenedor general */
 .container {
   max-width: 450px;
   margin: 40px auto;
   padding: 10px;
 }
 
-/* - formularios tarjeta - */
-
+/* formularios tarjeta */
 .form {
   width: 100%;
   background-color: #ffffff;
@@ -27,8 +24,7 @@ body {
   text-align: center;
 }
 
-/* - titulos - */
-
+/* titulos */
 .title {
   font-size: 1.9rem;
   font-weight: 700;
@@ -36,8 +32,7 @@ body {
   margin-bottom: 25px;
 }
 
-/* - Labels - */
-
+/* Labels */
 .label {
   display: block;
   text-align: left;
@@ -46,8 +41,7 @@ body {
   margin-bottom: 6px;
 }
 
-/* - Inputs - */
-
+/* Inputs */
 .input {
   width: 100%;
   padding: 12px;
@@ -57,6 +51,7 @@ body {
   border-radius: 6px;
   outline: none;
   transition: 0.18s;
+  box-sizing: border-box; /* Agregado para que no se salga del contenedor */
 }
 
 .input:focus {
@@ -64,8 +59,7 @@ body {
   box-shadow: 0 0 0 2px rgba(49,130,206,0.25);
 }
 
-/* - Boton de submit - */
-
+/* Boton de submit */
 .submit {
   background-color: #1a202c;
   color: #ffffff;
@@ -82,8 +76,7 @@ body {
   background-color: #2d3748;
 }
 
-/* - HR o division en el form - */
-
+/* HR o division en el form */
 hr {
   max-width: 320px;
   margin: 45px auto;
@@ -91,8 +84,7 @@ hr {
   border-top: 1px solid #aaa;
 }
 
-/* - Mensajes de error - */
-
+/* Mensajes de error */
 .error {
   color: red;
   background: #ffe5e5;
@@ -103,7 +95,7 @@ hr {
   text-align: center;
 }
 
-/* - botones de productos - */
+/* botones de productos */
 .productos-btn a {
   text-decoration: none;
   color: #ffffff;       
@@ -119,3 +111,135 @@ hr {
   background-color: #00f050;
 }
 
+/* Botón "Agregar al carrito" */
+.btn-carrito {
+  background-color: #1a202c;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 10px; 
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.18s ease;
+  margin-top: 10px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-carrito:hover {
+  background-color: #2d3748;
+}
+
+
+
+/* Icono del carrito en Navegación */
+.cart-trigger {
+    cursor: pointer;
+    position: relative;
+    margin-left: 15px;
+    display: inline-block;
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #e74c3c; 
+    color: white;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* Panel Lateral (Side Drawer) */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100vh; 
+    background: #fff;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cart-sidebar.active {
+    right: 0; 
+}
+
+/* Cabecera del carrito */
+.cart-header {
+    background: #1a202c; 
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.close-cart { 
+    cursor: pointer; 
+    font-size: 1.5rem; 
+}
+
+/* Lista de items */
+.cart-items { 
+    flex: 1; 
+    overflow-y: auto; 
+    padding: 15px; 
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+/* Pie del carrito y boton comprar */
+.cart-footer {
+    padding: 20px;
+    background: #f3f4f6;
+    border-top: 1px solid #ddd;
+}
+
+.btn-checkout {
+    width: 100%;
+    padding: 12px;
+    background: rgb(3, 150, 255); 
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-checkout:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Fondo oscuro al abrir */
+.cart-overlay {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(0,0,0,0.5); 
+    z-index: 1999; 
+    display: none;
+}
+
+.cart-overlay.active { 
+    display: block; 
+}
